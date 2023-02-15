@@ -1,0 +1,13 @@
+{
+  "name": "long-load",
+  "private": true,
+  "version": "1.0.0",
+  "description": "simple node.js app that mocks up an application with a long start time",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "fastify": "^4.13.0"
+  }
+}
