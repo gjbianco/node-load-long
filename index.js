@@ -5,7 +5,7 @@ let isHealthy = true;
 
 fastify.get('/ping', async (req, res) => {
   if(isHealthy) {
-    return 'pong';
+    return 'pong\n';
   } else {
     throw new Error('app is unhealthy');
   }
