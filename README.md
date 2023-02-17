@@ -41,3 +41,14 @@ Toggles whether the app is currently healthy or sick.
 
 Kills the process with an error code.
 Helps for simulating process crashes.
+
+
+### `/leak`
+
+USE WITH CAUTION.
+Consumes a fixed amount of memory (~480MB).
+
+### `/unleak`
+
+Releases memory consumed with `/leak`.
+Might not work on all systems, as it tries to force a full garbage collection cycle.
