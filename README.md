@@ -12,17 +12,20 @@ $ podman build . -t long-load
 ```
 
 Start the container by binding to port 3000 in the container.
-`START_DELAY` defaults to 10,000 milliseconds.
 
 ```sh
 $ podman run --name long-load -p 3000:3000 long-load
 ```
 
-Optionally, specify a start delay time.
+## Options
 
-```sh
-$ podman run --name long-load -p 3000:3000 -e START_DELAY=3000 long-load
-```
+`long-load` responds to the following environment variables:
+
+* `START_DELAY`: How long to wait (in ms) before "starting".
+Defaults to `1000`.
+
+* `SHOW_HOST`: Whether to prefix replies with the hostname.
+Set to `"true"` to enable (quotes required).
 
 ## Routes
 
@@ -31,7 +34,11 @@ Note that all routes are of type GET for simplicity, even if they really should 
 ### `/ping`
 
 Replies with 'pong'.
-Can be used as a health probe endpoint as it will crash if the app is set to be sick.
+
+### `/health`
+
+Used as a health probe.
+Replies with appropriate error if the app is either sick or still starting.
 
 ### `/togglesick`
 
