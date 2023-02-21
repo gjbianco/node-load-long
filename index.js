@@ -13,8 +13,11 @@ setTimeout(() => {
 }, delay);
 
 if(process.env.SHOW_HOST === "true") {
+  const hostname = require('fs')
+    .readFileSync('/etc/hostname', 'utf8')
+    .replace('\n', '');
   fastify.addHook('onSend', (req, rep, payload, done) => {
-    done(null, `${req.hostname}: ${payload}`);
+    done(null, `${hostname}: ${payload}`);
   });
 }
 

@@ -26,6 +26,7 @@ Defaults to `1000`.
 
 * `SHOW_HOST`: Whether to prefix replies with the hostname.
 Set to `"true"` to enable (quotes required).
+Must have hostname located in UTF-8 encoded file `/etc/hostname`.
 
 ## Routes
 
