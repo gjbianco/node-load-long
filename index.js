@@ -1,6 +1,6 @@
 const fastify = require('fastify')({logger: true});
 const runInNewContext = require('vm').runInNewContext;
-const delay = parseInt(process.env.START_DELAY);
+const delay = parseInt(process.env.START_DELAY, 10);
 
 require('v8').setFlagsFromString('--expose_gc');
 
@@ -64,6 +64,18 @@ fastify.get('/unleak', async () => {
 // should really be POST, but done as GET for simplicity
 fastify.get('/togglesick', async () => {
   isHealthy = !isHealthy;
+});
+
+// should really be POST, but done as GET for simplicity
+fastify.get('/hiccup', async (req) => {
+  let time = 10;
+  if (typeof req.query.time === "string") {
+    time = parseInt(req.query.time, 10);
+  }
+  isHealthy = false;
+  setTimeout(() => {
+    isHealthy = true;
+  }, time * 1000);
 });
 
 fastify.get('/destruct', async () => {

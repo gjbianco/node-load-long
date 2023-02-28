@@ -45,6 +45,12 @@ Replies with appropriate error if the app is either sick or still starting.
 
 Toggles whether the app is currently healthy or sick.
 
+### `/hiccup?time=10`
+
+Sets the app as sick for `time` seconds.
+Defaults to 10 seconds if `time` is not provided.
+Overrides any previously toggled health status.
+
 ### `/destruct`
 
 Kills the process with an error code.
