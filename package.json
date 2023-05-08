@@ -5,9 +5,13 @@
   "description": "simple node.js app that mocks up an application with a long start time",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "nodeshift": "nodeshift"
   },
   "dependencies": {
     "fastify": "^4.13.0"
+  },
+  "devDependencies": {
+    "nodeshift": "^8.7.0"
   }
 }
